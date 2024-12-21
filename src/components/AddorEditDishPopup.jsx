@@ -53,7 +53,7 @@ useEffect(() => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          `${baseUrl}/api/restaurants/allDishes/${restaurantId}`
+          `https://hungrx-backend.onrender.com/api/restaurants/allDishes/${restaurantId}`
         );
         const fetchedCategories = response.data.categories || [];
         setCategories(fetchedCategories);
@@ -93,12 +93,12 @@ useEffect(() => {
 
     try {
       const response = await axios.put(
-        `${baseUrl}/api/restaurants/createCategory/${restaurantId}`,
+        `https://hungrx-backend.onrender.com/api/restaurants/createCategory/${restaurantId}`,
         { categoryName: newCategory }
       );
 
       const updatedCategoriesResponse = await axios.get(
-        `${baseUrl}/api/restaurants/allDishes/${restaurantId}`
+        `https://hungrx-backend.onrender.com/api/restaurants/allDishes/${restaurantId}`
       );
       const updatedCategories = updatedCategoriesResponse.data.categories || [];
       setCategories(updatedCategories);
@@ -125,13 +125,13 @@ useEffect(() => {
     try {
       // Add the new subcategory
       await axios.put(
-        `${baseUrl}/api/restaurants/createSubcategory/${restaurantId}/${selectedCategoryId}`,
+        `https://hungrx-backend.onrender.com/api/restaurants/createSubcategory/${restaurantId}/${selectedCategoryId}`,
         { subCategoryName: newSubCategory }
       );
   
       // Fetch the updated categories
       const updatedCategoriesResponse = await axios.get(
-        `${baseUrl}/api/restaurants/allDishes/${restaurantId}`
+        `https://hungrx-backend.onrender.com/api/restaurants/allDishes/${restaurantId}`
       );
       const updatedCategories = updatedCategoriesResponse.data.categories || [];
   
@@ -250,12 +250,12 @@ useEffect(() => {
         });
   
         response = await axios.put(
-          `${baseUrl}/api/restaurants/editDish/${dish._id}/${selectedCategoryId}/${selectedSubCategoryId || ''}`,
+          `https://hungrx-backend.onrender.com/api/restaurants/editDish/${dish._id}/${selectedCategoryId}/${selectedSubCategoryId || ''}`,
           dishData
         );
       } else {
         response = await axios.put(
-          `${baseUrl}/api/restaurants/createDish/${selectedCategoryId}/${selectedSubCategoryId || ''}`,
+          `https://hungrx-backend.onrender.com/api/restaurants/createDish/${selectedCategoryId}/${selectedSubCategoryId || ''}`,
           dishData
         );
       }

@@ -20,7 +20,7 @@ const DeleteRestaurantPopup = ({ restaurant, closePopup, updateRestaurantList })
     setError('');
 
     try {
-      const response = await fetch(`${baseUrl}/api/restaurants/deleteRestaurant/${restaurant._id}`, {
+      const response = await fetch(`https://hungrx-backend.onrender.com/api/restaurants/deleteRestaurant/${restaurant._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json', // Correct content type for sending JSON

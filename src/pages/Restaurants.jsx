@@ -26,7 +26,7 @@ const Restaurants = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${baseUrl}/api/restaurants/allRestaurants?page=${page}&search=${debouncedQuery}`
+        `https://hungrx-backend.onrender.com/api/restaurants/allRestaurants?page=${page}&search=${debouncedQuery}`
       );
       const {
         restaurants: fetchedRestaurants,
@@ -48,7 +48,7 @@ const Restaurants = () => {
 
   const fetchTotalRestaurants = async () => {
     try {
-      const response = await fetch('${baseUrl}/api/restaurants/totalRestaurants', {
+      const response = await fetch('https://hungrx-backend.onrender.com/api/restaurants/totalRestaurants', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -206,7 +206,7 @@ const Restaurants = () => {
                 <Link to={`/restaurant/${restaurant._id}`}>
                   <img
                     className="rounded-t-xl w-full h-40 object-cover"
-                    src={`${baseUrl}/public${restaurant.logo}`}
+                    src={`https://hungrx-backend.onrender.com/public${restaurant.logo}`}
                     alt={restaurant.name}
                   />
                 </Link>
